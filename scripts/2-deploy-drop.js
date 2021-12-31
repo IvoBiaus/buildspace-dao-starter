@@ -8,6 +8,7 @@ const app = sdk.getAppModule("0x2234A6Ed9B7A1cb1f83782b1A035F34ceEF2945E");
 (async () => {
   try {
     const bundleDropModule = await app.deployBundleDropModule({
+      // Collection information
       name: "LastnameDAO Membership",
       description: "A DAO where your lastname is represented on an shared NFT.",
       image: readFileSync("scripts/assets/lastname.png"),
