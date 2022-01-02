@@ -3,7 +3,7 @@ import { shortenAddress } from "../utils";
 const Form = ({ proposals, isVoting, hasVoted, memberList, onSubmit }) => {
   return (
     <div className="member-page">
-      <h1>🍪DAO Member Page</h1>
+      <h1>Lastname DAO Member Dashboard</h1>
       <p>Congratulations on being a member</p>
       <div>
         <div>

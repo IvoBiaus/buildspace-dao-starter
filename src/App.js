@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { ethers } from "ethers";
 
+import { UnsupportedChainIdError } from "@web3-react/core";
 import { useWeb3 } from "@3rdweb/hooks";
 import { ThirdwebSDK } from "@3rdweb/sdk";
 
-import { shortenAddress } from "./utils";
 import Form from "./components/form";
 
 // Instantiate the sdk on Rinkeby.
@@ -34,7 +34,7 @@ const App = () => {
   const [isVoting, setIsVoting] = useState(false);
   const [hasVoted, setHasVoted] = useState(false);
 
-  const { connectWallet, address, provider } = useWeb3();
+  const { connectWallet, address, provider, error } = useWeb3();
   console.log("👋 Address:", address);
 
   // The signer is required to sign transactions on the blockchain.
@@ -262,6 +262,18 @@ const App = () => {
     }
   };
 
+  if (error instanceof UnsupportedChainIdError) {
+    return (
+      <div className="unsupported-network">
+        <h2>Please connect to Rinkeby</h2>
+        <p>
+          This dapp only works on the Rinkeby network, please switch networks in
+          your connected wallet.
+        </p>
+      </div>
+    );
+  }
+
   if (!address) {
     return (
       <div className="landing">
@@ -287,7 +299,7 @@ const App = () => {
 
   return (
     <div className="mint-nft">
-      <h1>Mint your free 🍪DAO Membership NFT</h1>
+      <h1>Mint your free Lastname DAO Membership NFT</h1>
       <button disabled={isClaiming} onClick={() => mintNft()}>
         {isClaiming ? "Minting..." : "Mint your nft (FREE)"}
       </button>
