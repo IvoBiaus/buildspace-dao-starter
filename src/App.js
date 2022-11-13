@@ -7,8 +7,8 @@ import { ThirdwebSDK } from "@3rdweb/sdk";
 
 import Form from "./components/form";
 
-// Instantiate the sdk on Rinkeby.
-const sdk = new ThirdwebSDK("rinkeby");
+// Instantiate the sdk on Goerli.
+const sdk = new ThirdwebSDK("goerli");
 
 // Reference to our ERC-1155 contract.
 const bundleDropModule = sdk.getBundleDropModule(
@@ -265,9 +265,9 @@ const App = () => {
   if (error instanceof UnsupportedChainIdError) {
     return (
       <div className="unsupported-network">
-        <h2>Please connect to Rinkeby</h2>
+        <h2>Please connect to Goerli</h2>
         <p>
-          This dapp only works on the Rinkeby network, please switch networks in
+          This dapp only works on the Goerli network, please switch networks in
           your connected wallet.
         </p>
       </div>

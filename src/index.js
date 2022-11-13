@@ -6,8 +6,8 @@ import "./index.css";
 import App from "./App.js";
 
 // Chains you wanna support.
-// 4 = Rinkeby.
-const supportedChainIds = [4];
+// 5 = Rinkeby.
+const supportedChainIds = [5];
 
 // Type of wallet you want to support.
 // In this case, we support Metamask which is an "injected wallet".
